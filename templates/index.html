@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MarsNews</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- style.css reference-->
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+</head>
+<body>
+    <!-- Jumbotron container -->
+    <div class="container">
+        <div class="jumbotron" style="background-image: url('https://images.pexels.com/photos/586030/pexels-photo-586030.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" style="background-size: cover">
+            <div class="jumbotron text-center">
+                <h1>Mission to Mars</h1>
+                <br>
+                <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
+            </div>
+        </div>
+    </div>
+    <!-- Page body -->
+    <div class="container">
+        <!-- Row for news and paragraph -->
+        <div class="row">
+            <div class="col-md-8"></div>
+                <h2 style="font-weight:bold">Latest Mars News</h2>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>{{mars_db.news_title}}</h3>
+                <h4>{{mars_db.news_p}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Featured image -->
+            <div class="col-md-8">
+                <h2 style="font-weight:bold">Featured Mars Image</h2>
+                <img src="{{mars_db.latestImageURL}}" alt="Featured image from Mars" height="100%" width="90%">
+            </div>
+            <!-- Weather and facts -->
+            <div class="col-md-4">
+                <div class="row" style="border:3px solid gray; margin-top:65px">
+                    <h4 style="font-weight:bold">Current Weather On Mars</h4>    
+                    {{mars_db.marsWeather}}
+                </div>
+                <div class="row" style="padding-top: 70px">
+                    <h4 style="font-weight:bold">Mars Facts</h4>
+                    {{mars_db.marsFacts|safe}}
+                </div>
+            </div>
+        </div>
+        <!-- Mars hemispheres info -->
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h2 style="font-weight:bold">Mars Hemispheres</h2>
+                </center>
+            </div>
+        <hr/>
+        </div>
+        <!-- First row of images and hemisphere name -->
+        <div class="row">
+            <div class="col-md-6" style="border:3px solid gray; margin-top:20px">
+                <img src="{{mars_db.imageURL[0]["img_url"]}}" alt="Cerberus image" width="100%">
+                <h4 style="border:2px solid gray">{{mars_db.imageURL[0]["title"]}}</h4>
+            </div>
+            <div class="col-md-6" style="border:3px solid gray; margin-top:20px">
+                <img src="{{mars_db.imageURL[1]["img_url"]}}" alt="Schiaparelli image" width="100%">
+                <h4 style="border:2px solid gray">{{mars_db.imageURL[1]["title"]}}</h4>
+            </div>
+        </div>
+        <br>
+        <!-- Second row of images and hemisphere name -->
+        <div class="row">
+            <div class="col-md-6" style="border:3px solid gray; margin-top:20px">
+                <img src="{{mars_db.imageURL[2]["img_url"]}}" alt="Syrtis image" width="100%">
+                <h4 style="border:2px solid gray">{{mars_db.imageURL[2]["title"]}}</h4>
+            </div>
+            <div class="col-md-6" style="border:3px solid gray; margin-top:20px">
+                <img src="{{mars_db.imageURL[3]["img_url"]}}" alt="something" width="100%">
+                <h4 style="border:2px solid gray">{{mars_db.imageURL[3]["title"]}}</h4>
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
